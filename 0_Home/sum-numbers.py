@@ -17,11 +17,12 @@ sum_numbers('') == 0
 
 # My stupid way
 def sum_numbers(txt):
-    numbs = list()
+    sm = 0
     for w in txt.split():
         try:
-            numbs.append(int(w))
+            sm +=int(w)
         except ValueError:
             continue
 
-    return sum(numbs)
+    return sm
+
