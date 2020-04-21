@@ -25,4 +25,3 @@ def sum_numbers(txt):
             continue
 
     return sm
-
