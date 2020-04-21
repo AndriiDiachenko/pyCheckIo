@@ -25,3 +25,14 @@ def threeWordsCheck(text: str):
         else:
             counter = 0
     return True if counter == 3 else False
+
+# v2
+
+def threew(text: str):
+    counter = 0
+    for w in text.split():
+        counter +=1 * w.isalpha()
+        if counter == 3:
+            return True
+    else:
+        return False
