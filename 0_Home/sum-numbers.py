@@ -25,3 +25,10 @@ def sum_numbers(txt):
             continue
 
     return sm
+
+# Quick way:
+def sum_numbers_two(txt):
+    return sum(int(w) for w in txt.split() if w.isdigit())
+
+
+
