@@ -21,12 +21,17 @@ How it is used: for parsing texts
 Precondition: can't be more than one final marker and can't be more than one initial. Marker can't be an empty string
 '''
 
-def between_markers(text: str, begin: str, end: str):
-    begin_index = 0
-    begin_end = 0
-    if text.find(begin) !=-1:
-        begin_index = text.find(begin)
-        begin_end = len(begin)
-    last_index = text.find(end) if text.find(end)!=-1 else len(text)
-    return text[begin_index + begin_end: last_index]
+# def between_markers(text: str, begin: str, end: str):
+#     begin_index = 0
+#     begin_end = 0
+#     if text.find(begin) !=-1:
+#         begin_index = text.find(begin)
+#         begin_end = len(begin)
+#     last_index = text.find(end) if text.find(end)!=-1 else len(text)
+#     return text[begin_index + begin_end: last_index]
 
+def between_markers(text: str, begin: str, end: str):
+    start = text.find(begin) + len(begin) if begin in text else None
+    stop = text.find(end) if end in text else None
+
+    return text[start:stop]
