@@ -15,10 +15,10 @@ second_index("hi", " ") is None
 
 
 def second_index(text: str, symbol: str):
-    f_element = text.find(symbol)
-    s_element = text.find(symbol, f_element + 1)
-
-    if s_element != -1: return s_element
+    try:
+        return text.index(symbol, text.index(symbol) + 1)
+    except ValueError:
+        return None
 
 
 if __name__ == '__main__':
