@@ -9,6 +9,7 @@ morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--") == "It w
 '''
 
 def morse_decoder(message: str):
+    # Original Morse codes dict
     morse_dict = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
@@ -25,5 +26,25 @@ def morse_decoder(message: str):
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
 
-    morse_ch_dict = dict((code, let) for let, code in morse_dict.items())
+    # Reversed Morse dict where values use as keys
+    morse_ch_dict = dict((code, let.lower()) for let, code in morse_dict.items())
+
+    # Each world has 3 spaces distance
+    words = message.split("   ")
+    trans = ""
+
+    # for w in words:
+    #     # Each letter has a 1 space distance
+    #     chars = w.split(" ")
+    #     for ch in chars:
+    #         trans += morse_ch_dict[ch]
+    #     trans += " "
+    #
+    # return trans.capitalize().rstrip()
+
+    # return " ".join(
+    #     ["".join([morse_ch_dict[mc] for mc in words.split()]) for words in message.split("  ")]
+    # ).capitalize()
+
+print(morse_decoder("... --- -- .   - . -..- -"))
 
