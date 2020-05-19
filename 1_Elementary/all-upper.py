@@ -14,15 +14,18 @@ is_all_upper('') == True
 '''
 
 def is_all_upper(txt: str) -> bool:
-    if len(txt) > 0 and txt.isalpha():
-        for words in txt.split(" "):
-            return False if words.isupper() is False else True
 
+    for words in txt.split(" "):
+        if words.islower() and len(words) > 0:
+            return False
     return True
 
-if __name__ == '__main__':
 
+
+
+if __name__ == '__main__':
     assert is_all_upper('ALL UPPER') == True
     assert is_all_upper('all lower') == False
     assert is_all_upper('mixed UPPER and lower') == False
-    assert is_all_upper('  ') == True
+    assert is_all_upper('') == True
+    assert is_all_upper(' ') == True
