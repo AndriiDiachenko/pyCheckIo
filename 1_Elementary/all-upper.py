@@ -14,11 +14,9 @@ is_all_upper('') == True
 '''
 
 def is_all_upper(txt: str) -> bool:
+    return txt.upper() == txt
 
-    for words in txt.split(" "):
-        if words.islower() and len(words) > 0:
-            return False
-    return True
+
 
 
 
