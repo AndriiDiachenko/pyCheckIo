@@ -19,5 +19,21 @@ nearest_value({4, 7, 10, 11, 12, 17}, 9) == 10
 nearest_value({4, 7, 10, 11, 12, 17}, 8) == 7
 '''
 
-def nearest_value( items: set, numb: int) -> int:
+def nearest_value( items: set, find: int) -> int:
 
+    return min(sorted(items), key = lambda x: abs(x - find))
+
+
+if __name__ == '__main__':
+
+    print(nearest_value({0, -2}, -1))
+
+    # These "asserts" are used for self-checking and not for an auto-testing
+    assert nearest_value({4, 7, 10, 11, 12, 17}, 9) == 10
+    assert nearest_value({4, 7, 10, 11, 12, 17}, 8) == 7
+    assert nearest_value({4, 8, 10, 11, 12, 17}, 9) == 8
+    assert nearest_value({4, 9, 10, 11, 12, 17}, 9) == 9
+    assert nearest_value({4, 7, 10, 11, 12, 17}, 0) == 4
+    assert nearest_value({4, 7, 10, 11, 12, 17}, 100) == 17
+    assert nearest_value({5, 10, 8, 12, 89, 100}, 7) == 8
+    assert nearest_value({-1, 2, 3}, 0) == -1
